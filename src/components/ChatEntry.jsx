@@ -2,22 +2,35 @@ import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
-const ChatEntry = ({sender, body, timeStamp, localSender}) => {
-  const isLocal = sender === localSender;
+const ChatEntry = (props) => {
+  const isLocal = props.sender === props.localSender;
   const entryClass = isLocal ? 'local' : 'remote';
+  const isLiked = props.isLiked ? '❤️' : '🤍';
+  const isLikedButtonClicked = () => {
+    props.onToggleHeart(props.id);
+  };
 
   return (
     <article className={`chat-entry ${entryClass}`}>
-      <h2 className="entry-name">{sender}</h2>
+      <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
-        <p className="entry-body">{body}</p>
+        <p className="entry-body">{props.body}</p>
         <p className="entry-time">
-          <TimeStamp time={timeStamp} />
+          <TimeStamp time={props.timeStamp} />
         </p>
-        <button className="button">❤️</button>
+        <button className="like" onClick={isLikedButtonClicked}>{isLiked}</button>
       </section>
     </article>
   );
 };
 
 export default ChatEntry;
+
+ChatEntry.propTypes = {
+  sender: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  timeStamp: PropTypes.string.isRequired,
+  localSender: PropTypes.string.isRequired,
+  isLiked: PropTypes.bool.isRequired,
+  onToggleHeart: PropTypes.func.isRequired,
+};
