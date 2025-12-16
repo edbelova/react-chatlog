@@ -1,14 +1,18 @@
+import { useState } from 'react';
 import './SenderColorPicker.css';
 
 const SenderColorPicker = ({ senderName, chooseFontColor }) => {
 
+  const [color, setColor] = useState('black');
+
   const colorButtonClicked = (color) => {
     chooseFontColor(senderName, color);
+    setColor(color);
   };
 
   return (
     <div className="widget sender-color-picker">
-      <h3 className="senderLabel">{senderName}'s color:</h3>
+      <h3 className={`senderLabel ${color}`}>{senderName}'s color:</h3>
       <span className={senderName.toLowerCase()}>
         <button onClick={() => colorButtonClicked('red')}>🔴</button>
         <button onClick={() => colorButtonClicked('orange')}>🟠</button>

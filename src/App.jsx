@@ -37,7 +37,6 @@ const App = () => {
   return (
     <div id="App">
       <Header
-        title="Chat between Vladimir and Estragon"
         totalLikes={totalLikes}
         chooseFontColor={chooseFontColor}
       />
