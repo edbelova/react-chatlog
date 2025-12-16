@@ -35,6 +35,6 @@ ChatEntry.propTypes = {
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
   localSender: PropTypes.string.isRequired,
-  isLiked: PropTypes.bool.isRequired,
+  isLiked: PropTypes.bool,
   onToggleHeart: PropTypes.func.isRequired,
 };
