@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import ChatLog from './components/ChatLog.jsx';
 import messages from './data/messages.json';
+import Header from './components/Header.jsx';
 
 const App = () => {
   const [entries, setEntries] = useState(messages);
@@ -25,10 +26,7 @@ const App = () => {
 
   return (
     <div id="App">
-      <header>
-        <h1>Chat Between Vladimir and Estragon</h1>
-        <h2>{totalLikes} ❤️s</h2>
-      </header>
+      <Header title="Chat between Vladimir and Estragon" totalLikes={totalLikes} />
       <main>
         <ChatLog
           entries={entries}
