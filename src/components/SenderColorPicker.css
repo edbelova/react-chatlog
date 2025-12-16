@@ -26,6 +26,10 @@ span {
   color: purple
 }
 
+.black {
+  color: black
+}
+
 .senderColorPicker span {
   margin: 0 0.15em;
 }

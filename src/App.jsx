@@ -6,6 +6,8 @@ import Header from './components/Header.jsx';
 
 const App = () => {
   const [entries, setEntries] = useState(messages);
+  const [fontColorForLocalSender, setFontColorForLocalSender] = useState('black');
+  const [fontColorForRemoteSender, setFontColorForRemoteSender] = useState('black');
   const localSender = 'Vladimir';
 
   const totalLikes = entries.reduce((total, entry) => {
@@ -24,14 +26,29 @@ const App = () => {
     });
   };
 
+  const chooseFontColor = (senderName, color) => {
+    if (senderName === localSender) {
+      setFontColorForLocalSender(color);
+    } else {
+      setFontColorForRemoteSender(color);
+    }
+  };
+
   return (
     <div id="App">
-      <Header title="Chat between Vladimir and Estragon" totalLikes={totalLikes} />
+      <Header
+        title="Chat between Vladimir and Estragon"
+        totalLikes={totalLikes}
+        chooseFontColor={chooseFontColor}
+      />
       <main>
         <ChatLog
           entries={entries}
           localSender={localSender}
-          onToggleHeart={toggleHeart} />
+          onToggleHeart={toggleHeart}
+          fontColorForLocalSender={fontColorForLocalSender}
+          fontColorForRemoteSender={fontColorForRemoteSender}
+        />
       </main>
     </div>
   );

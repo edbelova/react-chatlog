@@ -2,7 +2,7 @@ import './ChatLog.css';
 import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 
-const ChatLog = ({entries, localSender, onToggleHeart}) => {
+const ChatLog = ({entries, localSender, onToggleHeart, fontColorForLocalSender, fontColorForRemoteSender}) => {
   return (
     <section className="chat-log">
       {entries.map((entry) => (
@@ -15,6 +15,8 @@ const ChatLog = ({entries, localSender, onToggleHeart}) => {
           localSender={localSender}
           isLiked={entry.isLiked}
           onToggleHeart={onToggleHeart}
+          fontColorForLocalSender={fontColorForLocalSender}
+          fontColorForRemoteSender={fontColorForRemoteSender}
         />
       ))}
     </section>

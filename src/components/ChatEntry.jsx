@@ -10,11 +10,13 @@ const ChatEntry = (props) => {
     props.onToggleHeart(props.id);
   };
 
+  const fontColor = isLocal ? props.fontColorForLocalSender : props.fontColorForRemoteSender;
+
   return (
     <article className={`chat-entry ${entryClass}`}>
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
-        <p className="entry-body">{props.body}</p>
+        <p className={`entry-body ${fontColor}`}>{props.body}</p>
         <p className="entry-time">
           <TimeStamp time={props.timeStamp} />
         </p>
