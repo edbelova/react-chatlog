@@ -17,10 +17,12 @@ const ChatEntry = (props) => {
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
         <p className={`entry-body ${fontColor}`}>{props.body}</p>
-        <p className="entry-time">
-          <TimeStamp time={props.timeStamp} />
-        </p>
-        <button className="like" onClick={isLikedButtonClicked}>{isLiked}</button>
+        <div className="entry-attributes">
+          <p className="entry-time">
+            <TimeStamp time={props.timeStamp} />
+          </p>
+          <button className="like" onClick={isLikedButtonClicked}>{isLiked}</button>
+        </div>
       </section>
     </article>
   );
