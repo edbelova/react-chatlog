@@ -34,6 +34,6 @@ ChatLog.propTypes = {
       timeStamp: PropTypes.string.isRequired,
     })
   ).isRequired,
-  localSender: PropTypes.string.isRequired,
-  onToggleHeart: PropTypes.func.isRequired,
+  localSender: PropTypes.string,
+  onToggleHeart: PropTypes.func,
 };
